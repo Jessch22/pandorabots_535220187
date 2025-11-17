@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+    <category>
+        <pattern>HALO</pattern>
+        <template>
+            <random>
+                <li>Halo! Aku adalah chatbot asisten penelitianmu.</li>
+                <li>Selamat datang! Aku siap membantu.</li>
+            </random>
+        </template>
+    </category>
+    
+    <category> <pattern>HI</pattern> <template><srai>HALO</srai></template> </category>
+    <category> <pattern>PAGI</pattern> <template><srai>HALO</srai></template> </category>
+    <category> <pattern>SIANG</pattern> <template><srai>HALO</srai></template> </category>
+    <category> <pattern>SORE</pattern> <template><srai>HALO</srai></template> </category>
+    <category> <pattern>MALAM</pattern> <template><srai>HALO</srai></template> </category>
+    
+    <category>
+        <pattern>NAMA SAYA *</pattern>
+        <template>
+            Oke, <set name="nama"><star/></set>! Namamu sudah kusimpan.
+        </template>
+    </category>
+
+    <category> <pattern>NAMAKU *</pattern> <template><srai>NAMA SAYA <star/></srai></template> </category>
+    <category> <pattern>SAYA *</pattern> <template><srai>NAMA SAYA <star/></srai></template> </category>
+
+    <category>
+        <pattern>SIAPA NAMA SAYA</pattern>
+        <template>
+            <condition name="nama">
+                <li><value>*</value>Nama kamu <get name="nama"/>. Aku ingat!</li>
+                <li>Kamu belum memberitahu namamu.</li>
+            </condition>
+        </template>
+    </category>
+    
+    <category> <pattern>SIAPA NAMAKU</pattern> <template><srai>SIAPA NAMA SAYA</srai></template> </category>
+
+    <category>
+        <pattern>NAMA AKU BUKAN *</pattern>
+        <template>
+            Oh, maaf! Kalau begitu, nama kamu siapa? (Katakan 'Nama saya ...')
+        </template>
+    </category>
+
+    <category>
+        <pattern>NAMA SAYA BUKAN *</pattern>
+        <template><srai>NAMA AKU BUKAN <star/></srai></template>
+    </category>
+
+    <category>
+        <pattern>GANTI NAMA</pattern>
+        <template>
+            Tentu, mau diganti jadi siapa? (Katakan 'Nama saya ...')
+        </template>
+    </category>
+    
+    
+    <category>
+        <pattern>KAMU SIAPA</pattern>
+        <template>Aku adalah asisten chatbot yang dirancang untuk menjawab pertanyaan seputar metodologi penelitian ini.</template>
+    </category>
+    
+    <category>
+        <pattern>TERIMA KASIH</pattern>
+        <template>Sama-sama! Semoga penjelasannya bermanfaat.</template>
+    </category>
+    <category> <pattern>MAKASIH</pattern> <template><srai>TERIMA KASIH</srai></template> </category>
+    <category> <pattern>OK</pattern> <template>Ada lagi yang ingin ditanyakan?</template> </category>
+    
+    <!--TENTANG PENELITIAN-->
+    <category>
+        <pattern>PENELITIAN INI TENTANG APA</pattern>
+        <template>
+            Penelitian ini bertujuan untuk mengoptimalkan model Indonesian RoBERTa (base) untuk tugas analisis sentimen dengan mencari hyperparameter terbaik untuk mendapatkan akurasi tertinggi dalam mengklasifikasikan ulasan aplikasi.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>TOPIKNYA APA</pattern>
+        <template><srai>PENELITIAN INI TENTANG APA</srai></template>
+    </category>
+    <category>
+        <pattern>APA TUJUAN PENELITIAN INI</pattern>
+        <template><srai>PENELITIAN INI TENTANG APA</srai></template>
+    </category>
+    <category>
+        <pattern>JUDULNYA APA</pattern>
+        <template><srai>PENELITIAN INI TENTANG APA</srai></template>
+    </category>
+    
+    <!--DATASET-->
+    <category>
+        <pattern>DATANYA DARI MANA</pattern>
+        <template>
+            Datanya diambil dari ulasan (reviews) pengguna aplikasi TikTok, Instagram, Facebook, dan Threads di Google Play Store. Total ada sekitar 8000 data (2000 per aplikasi).
+        </template>
+    </category>
+    <category>
+        <pattern>DATASETNYA APA</pattern>
+        <template><srai>DATANYA DARI MANA</srai>
+        </template>
+    </category>
+    
+    <!--LABELING-->
+    <category>
+        <pattern>BAGAIMANA CARA MENDAPATKAN LABELNYA</pattern>
+        <template>
+            Label sentimen didapatkan dengan memetakan skor bintang (rating) yang diberikan pengguna. Bintang 1-2 = Negatif, Bintang 3 = Netral, Bintang 4-5 = Positif.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>CARA LABELING BAGAIMANA</pattern>
+        <template><srai>BAGAIMANA CARA MENDAPATKAN LABELNYA</srai></template>
+    </category>
+    
+    <category>
+        <pattern>GROUND TRUTHNYA APA</pattern>
+        <template><srai>BAGAIMANA CARA MENDAPATKAN LABELNYA</srai></template>
+    </category>
+    <category>
+        <pattern>LABELNYA POSITIF NEGATIF DARI MANA</pattern>
+        <template><srai>BAGAIMANA CARA MENDAPATKAN LABELNYA</srai></template>
+    </category>
+    
+    <!--PREPROCESSING-->
+    <category>
+        <pattern>PREPROCESSINGNYA APA SAJA</pattern>
+        <template>
+            Preprocessing standar: Case Folding (huruf kecil), Cleaning (hapus URL, emoji, tanda baca), Normalisasi Slang (mengubah 'yg' jadi 'yang'), dan Stopword Removal.
+        </template>
+    </category>
+    
+    <!--MODEL YANG DIPAKAI-->
+    <category>
+        <pattern>MODEL APA YANG DIPAKAI</pattern>
+        <template>
+            Penelitian menggunakan model *base* dari ('flax-community/indonesian-roberta-base') yang kemudian dilatih (fine-tune).
+        </template>
+    </category>
+    <category>
+        <pattern>MODELNYA APA</pattern>
+        <template><srai>MODEL APA YANG DIPAKAI</srai></template>
+    </category>
+    <category>
+        <pattern>PAKAI INDOROBERTA YANG MANA</pattern>
+        <template><srai>MODEL APA YANG DIPAKAI</srai></template>
+    </category>
+    
+    <!--INDOROBERTA-->
+    <category>
+        <pattern>APA ITU INDOROBERTA</pattern>
+        <template>
+            IndoRoBERTa adalah adaptasi dari model RoBERTa (varian BERT yang dioptimalkan) yang telah dilatih secara khusus menggunakan korpus Bahasa Indonesia. 
+            Gunanya adalah untuk memahami struktur, nuansa khas, dan konteks semantik Bahasa Indonesia, sehingga sangat efektif untuk tugas NLP seperti analisis sentimen.
+        </template>
+    </category>
+    
+    <category>
+        <pattern>APA ITU MODEL INDOROBERTA</pattern>
+        <template><srai>APA ITU INDOROBERTA</srai></template>
+    </category>
+    
+    <category>
+        <pattern>GUNANYA INDOROBERTA APA</pattern>
+        <template><srai>APA ITU INDOROBERTA</srai></template>
+    </category>
+    
+    <category>
+        <pattern>JELASKAN TENTANG INDOROBERTA</pattern>
+        <template><srai>APA ITU INDOROBERTA</srai></template>
+    </category>
+    
+    <!--PEMBAGIAN DATA-->
+    <category>
+        <pattern>BAGAIMANA PEMBAGIAN DATA</pattern>
+        <template>
+            Data dibagi sebanyak Data Latih 70%, Data Validasi 10%, dan Data Uji 20%).
+            1. Data Latih (70%) dipakai untuk melatih model.
+            2. Data Validasi (10%) dipakai untuk *tuning* 5 skenario eksperimen.
+            3. Data Uji (20%) dipakai di akhir untuk mendapatkan skor final yang valid.
+        </template>
+    </category>
+    
+    <category> <pattern>DATA SPLITNYA BAGAIMANA</pattern> <template><srai>BAGAIMANA PEMBAGIAN DATA</srai></template> </category>
+    <category> <pattern>DATA LATIH DAN UJI</pattern> <template><srai>BAGAIMANA PEMBAGIAN DATA</srai></template> </category>
+    
+    <!--OVERSAMPLING-->
+    <category>
+        <pattern>APA ITU OVERSAMPLING</pattern>
+        <template>
+            Data ulasan cenderung tidak seimbang (kebanyakan positif). Untuk mencegah model bias, data latih di-oversampling. Data negatif dan netral diduplikasi secara acak (RandomOverSampler) agar jumlahnya sama dengan data positif. Hal ini hanya dilakukan untuk data latih.
+        </template>
+    </category>
+    <category>
+        <pattern>KENAPA PAKAI OVERSAMPLING</pattern>
+        <template><srai>APA ITU OVERSAMPLING</srai></template> 
+    </category>
+    
+    <!--OPTIMASI / TUNING HYPERPARAMETER-->
+    <category>
+        <pattern>APA ITU OPTIMASI</pattern>
+        <template>
+            Optimasi adalah proses *hyperparameter tuning* yang dilakukan dengan menjalankan 5 skenario eksperimen. Masing-masing skenario mengubah 'learning rate' dan 'batch size' untuk menemukan kombinasi yang menghasilkan akurasi tertinggi.
+        </template>
+    </category>
+    <category>
+        <pattern>APA ITU HYPERPARAMETER TUNING</pattern>
+        <template><srai>APA ITU OPTIMASI</srai></template>
+    </category>
+    <category>
+        <pattern>5 EKSPERIMEN ITU APA</pattern>
+        <template><srai>APA ITU OPTIMASI</srai></template>
+    </category>
+    <category>
+        <pattern>SKENARIO EKSPERIMENNYA APA</pattern>
+        <template><srai>APA ITU OPTIMASI</srai></template>
+    </category>
+    
+    
+    <!--EVALUASI-->
+    <category>
+        <pattern>EVALUASINYA PAKAI APA</pattern>
+        <template>
+            Performa model dievaluasi menggunakan metrik: Akurasi, Presisi (Macro), Recall (Macro), dan F1-Score (Macro). 
+            Selain itu, Confusion Matrix akan ditampilkan untuk menganalisis di mana model (yang terbaik) paling sering melakukan kesalahan.
+        </template>
+    </category>
+    <category>
+        <pattern>CARA EVALUASI MODELNYA BAGAIMANA</pattern>
+        <template><srai>EVALUASINYA PAKAI APA</srai></template>
+    </category>
+    
+    <!--CONFUSION MATRIX, WORDCLOUD, GRAFIK DISTRIBUSI-->
+    <category>
+        <pattern>APA ITU CONFUSION MATRIX</pattern>
+        <template>
+            Confusion Matrix adalah tabel untuk evaluasi akhir.
+            Tabel ini menunjukkan seberapa sering model salah menebak. Misalnya, berapa banyak ulasan 'Negatif' yang salah ditebak sebagai 'Netral'.
+            </template> 
+    </category>
+    <category>
+        <pattern>APA ITU WORDCLOUD</pattern>
+        <template>Word cloud adalah visualisasi untuk eksplorasi data dengan menunjukkan kata-kata apa yang paling sering muncul di setiap kategori sentimen (positif, netral, negatif) pada data awal.</template>
+    </category>
+    <category>
+        <pattern>GRAFIK DISTRIBUSI LABEL ITU APA</pattern>
+        <template>Grafik distribusi adalah grafik untuk menunjukkan pembagian data berdasarkan label.</template>
+    </category>
+        
+    <!--HASIL-->
+    <category>
+        <pattern>HASILNYA BAGAIMANA</pattern>
+        <template>
+            Hasilnya akan dibandingkan dalam sebuah tabel dari 5 skenario eksperimen. Model terbaik akan dipilih berdasarkan F1-Score (Macro) tertinggi pada data validasi. 
+            Model terbaik itu kemudian akan diuji pada data uji (test set) untuk mendapatkan skor akhir.
+        </template>
+    </category>
+    <category> <pattern>MODEL MANA YANG TERBAIK</pattern> <template><srai>HASILNYA BAGAIMANA</srai></template> </category>
+    
+    <!--KETIKA BOT TIDAK MENGERTI-->
+    <category>
+        <pattern>*</pattern>
+        <template>
+            <random>
+                <li>Maaf, aku belum mengerti. Kamu bisa bertanya tentang metode, cara pembagian data, atau data yang digunakan</li>
+                <li>Aku belum diprogram untuk menjawab itu. Coba tanyakan tentang metode, cara pembagian data, atau data yang digunakan.</li>
+                <li>Maaf, aku belum mengerti. Aku bisa jawab seputar 'model apa yang dipakai' atau 'evaluasinya pakai apa'.</li>
+            </random>
+        </template>
+    </category>
+</aiml>
