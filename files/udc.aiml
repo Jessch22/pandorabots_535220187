@@ -7,6 +7,14 @@
                 <li>Halo! Aku adalah chatbot asisten penelitianmu.</li>
                 <li>Selamat datang! Aku siap membantu.</li>
             </random>
+            
+            <br/><br/>
+            Kamu bisa mulai dengan bertanya:
+            <ul>
+                <li>Apa tujuan penelitian ini?</li>
+                <li>Datanya dari mana?</li>
+                <li>Model apa yang dipakai?</li>
+            </ul>
         </template>
     </category>
     
